@@ -23,7 +23,7 @@ news = pd.read_csv("news.csv")
 
 news = news.drop_duplicates("description")
 news = news[~news["description"].isnull()]
-news = news[(news.description.map(len) >= 10)]   #Dropping articles with description less than 10 words
+news[~news["description"].apply(lambda x: len(x.split(" ")) < 10)]   #Dropping articles with description less than 10 words
 news.reset_index(inplace=True, drop=True)        #Reset index
 
 print(news.shape)

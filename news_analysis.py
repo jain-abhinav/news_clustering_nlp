@@ -66,12 +66,6 @@ plot_word_cloud(tfidf.sort_values(by=['tfidf'], ascending=True).head(40), "Lowes
 #Highest TfIDF scores
 plot_word_cloud(tfidf.sort_values(by=['tfidf'], ascending=False).head(40), "Highest")
 
-#Kmeans separates the documents into disjoint clusters. the assumption is that each cluster is attributed a single topic.
-#However, descriptions may in reality be characterized by a "mixture" of topics.
-#For example, let's take an article that deals with the hearing that Zuckerberg had in front of the congress:
-#you'll obviously have different topics rising based on the keywords: Privacy, Technology, Facebook app, data, etc.
-#We'll cover how to deal with this problem with the LDA algorithm.
-
 n_topics = 10
 n_iter = 2000
 lda_model = lda.LDA(n_topics=n_topics, n_iter=n_iter)
